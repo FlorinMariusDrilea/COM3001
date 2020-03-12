@@ -1,4 +1,4 @@
-% Class that represents bacteria producing nitrate
+% Class that represents bacteria
 
 classdef Bacteria
     
@@ -15,19 +15,20 @@ classdef Bacteria
         
         % Convert levels and return them
         function tank = convert(this, tank)
-            % If concentration of nitrate is too high -> cannot convert
+            % Is nitrate concentration too high to convert?
             if (tank.nitrateConc() < this.bacteriaParams.maxNitrateConc)
                 
-                % Ammonia is never negative
+                % Ammonia can never be negative! Bacteria only
+                % convert what is there
                 if (tank.ammonia - this.bacteriaParams.convertRate < 0)
-                    convertedAmmonia = tank.ammonia;
+                    convertedAmmonia = tank.ammonia; % all converted
                     tank.ammonia = 0;
                 else                
-                    convertedAmmonia = this.bacteriaParams.convertRate; 
+                    convertedAmmonia = this.bacteriaParams.convertRate; % not all converted
                     tank.ammonia = tank.ammonia - this.bacteriaParams.convertRate;
                 end
 
-                % Nitrate increases by ammount that was convertet above
+                % nitrate is increased by the ammount converted
                 tank.nitrate = tank.nitrate + convertedAmmonia;
             end
         end

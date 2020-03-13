@@ -22,9 +22,8 @@ function simulate (iterations)
     % The bacteria
     bacteria = Bacteria(params.bacteriaParams);
     
-    
     % Creating the agents
-    tank = createAgents(tank, params.tankParams, ...
+    tank = create_agents(tank, params.tankParams, ...
         params.fishParams, params.plantParams);
     
     
@@ -53,17 +52,17 @@ function simulate (iterations)
         tank = tank.addFood();
         
         % The fish intake and output
-        tank = fishIntakeAndOutput(tank);
+        tank = fish_Intake_Output(tank);
         
         % The bacteria converting ammonia level to nitrate concetration of
         % the water
         tank = bacteria.convert(tank);
         
         % The plant intake and output
-        tank = plantIntakeAndOutput(tank);        
+        tank = plant_Intake_Output(tank);        
         
         % The behaviour
-        tank = agentsBehaviour(tank);
+        tank = agents_behaviour(tank);
                
         % Storing the data
         results.fishPop(i) = tank.countAliveFish();
@@ -82,9 +81,9 @@ function simulate (iterations)
             end
             if (params.iterativeGraphs)
                 if (params.displayEvery == i)
-                    plotGraphs(results, i, iterations, params.displayEvery-1)
+                    plot_graphs(results, i, iterations, params.displayEvery-1)
                 else
-                    plotGraphs(results, i, iterations, params.displayEvery)
+                    plot_graphs(results, i, iterations, params.displayEvery)
                 end
             end
         end
@@ -93,6 +92,6 @@ function simulate (iterations)
     % Constructing the figure
     if ~params.iterativeGraphs
         figure('Name', 'Graphs', 'OuterPosition', [520, 100, 600, 1000]);
-        plotGraphs(results,i, iterations, iterations-1)
+        plot_graphs(results,i, iterations, iterations-1)
     end
 end

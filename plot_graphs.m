@@ -1,5 +1,5 @@
 % Plot the graphs according to the results, interations etc.
-function plotGraphs(results, i, iterations, part)
+function plot_graphs(results, i, iterations, part)
     f = findobj('Name','Graphs');
     figure(f)
     hold on

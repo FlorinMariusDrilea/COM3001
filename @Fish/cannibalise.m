@@ -1,4 +1,4 @@
-% fish eats tank
+% Fish eats tank
 function [thisFish, tank] = cannibalise(thisFish, tank)
     % Maximum size of target fish
     sizeLimit = thisFish.size * thisFish.cannibalSizeCoeff;

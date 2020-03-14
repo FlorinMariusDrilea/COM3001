@@ -1,4 +1,3 @@
-
 % Create arrays of agents with all specific params
 % Creating every fish and plant that is inside the tank
 function tank = create_agents(tank, tankParams, fishParams, plantParams)    

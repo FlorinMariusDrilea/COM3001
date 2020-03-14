@@ -11,7 +11,7 @@
     %			agent.behaviour()
     % STOP
 
-function simulate (iterations)
+function simulation (iterations)
 
     % Parameters
     params = load_parameters();
@@ -19,16 +19,14 @@ function simulate (iterations)
     % Creating the environment
     % The tank
     tank = Tank(params.tankParams, params.startParams);
-    % The bacteria
     bacteria = Bacteria(params.bacteriaParams);
-    
+        
     % Creating the agents
     tank = create_agents(tank, params.tankParams, ...
-        params.fishParams, params.plantParams);
-    
+        params.fishParams, params.plantParams); 
     
     % The data    
-    results.fishPop = zeros(iterations);
+    results.fishPopulation = zeros(iterations);
     results.fishSize = zeros(iterations);
     results.fishFood = zeros(iterations);
     results.fishHarvested = zeros(iterations);
@@ -46,7 +44,7 @@ function simulate (iterations)
         figure('Name', 'Graphs', 'OuterPosition', [520, 100, 600, 1000]);
     end
     
-    % Iterating over the loop
+    % Iterating over the loop            
     for i = 1:iterations
         % Adding to the tank the food amount
         tank = tank.addFood();
@@ -63,9 +61,9 @@ function simulate (iterations)
         
         % The behaviour
         tank = agents_behaviour(tank);
-               
+        
         % Storing the data
-        results.fishPop(i) = tank.countAliveFish();
+        results.fishPopulation(i) = tank.countAliveFish();
         results.fishFood(i) = tank.fishFood;
         results.fishSize(i) = tank.FishSize();
         results.fishHarvested(i) = tank.fishHarvested();
@@ -81,9 +79,9 @@ function simulate (iterations)
             end
             if (params.iterativeGraphs)
                 if (params.displayEvery == i)
-                    plot_graphs(results, i, iterations, params.displayEvery-1)
+                    plot_graphs(iterations, i, params.displayEvery-1, results)
                 else
-                    plot_graphs(results, i, iterations, params.displayEvery)
+                    plot_graphs(iterations, i, params.displayEvery, results)
                 end
             end
         end
@@ -92,6 +90,6 @@ function simulate (iterations)
     % Constructing the figure
     if ~params.iterativeGraphs
         figure('Name', 'Graphs', 'OuterPosition', [520, 100, 600, 1000]);
-        plot_graphs(results,i, iterations, iterations-1)
+        plot_graphs(iterations, i, iterations-1, results)
     end
 end

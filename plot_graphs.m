@@ -21,8 +21,8 @@ function plot_graphs(iterations, i, part, results)
     subplot(2,1,2)  
     yyaxis left
     xlim([0 iterations])
-    plot(i-part:i, results.ammoniaConcs(i-part:i), '-b',...
-        i-part:i, results.nitrateConcs(i-part:i), '-r');
+    plot(i-part:i, results.ammoniaConcentrations(i-part:i), '-b',...
+        i-part:i, results.nitrateConcentrations(i-part:i), '-r');
     % Setting the legend
     legend('Ammonia', 'Nitrate','Location', 'EastOutside')
 end

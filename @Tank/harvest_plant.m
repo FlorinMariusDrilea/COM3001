@@ -1,5 +1,5 @@
 % Harvest a plant
-function [this, plant] = harvestPlant(this, plant)    
+function [this, plant] = harvest_plant(this, plant)    
     % The status of the plant is updated to 'harvested'
     plant.status = STATUS.HARVESTED;
     % Counting the harvested plant to the total number

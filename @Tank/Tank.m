@@ -26,11 +26,11 @@ classdef Tank
     methods
         % From other scripts
         % Couting the total number of alive fish
-        val = countAliveFish(this)
+        val = count_fish(this)
         % Feed the fish
-        [this, fish] = feedFish(this, fish)
+        [this, fish] = feed_fish(this, fish)
         % Feed the plant
-        [val, this] = feedPlant(this, plant)
+        [val, this] = feed_plant(this, plant)
         % Harvest the fish
         [this, fish] = harvest(this, fish)
         

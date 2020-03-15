@@ -1,5 +1,5 @@
 % Calculating the number of fish that are alive
-function val = countAliveFish(this)
+function val = count_fish(this)
     % Trivally, starting with 0 fish
     val = 0;
     [~, n] = size(this.fish);

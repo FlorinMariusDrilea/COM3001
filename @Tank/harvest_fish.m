@@ -1,5 +1,5 @@
 % Harvest a fish
-function [this, fish] = harvestFish(this, fish)
+function [this, fish] = harvest_fish(this, fish)
     % The status of the fish is updated to 'harvested'
     fish.status = STATUS.HARVESTED;
     % Counting the total number of harvested fish

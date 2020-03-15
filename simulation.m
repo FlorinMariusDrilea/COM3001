@@ -14,16 +14,16 @@
 function simulation (iterations)
 
     % Parameters
-    params = load_parameters();
+    parameters = load_parameters();
     
     % Creating the environment
     % The tank
-    tank = Tank(params.tankParams, params.startParams);
-    bacteria = Bacteria(params.bacteriaParams);
+    tank = Tank(parameters.tankparameters, parameters.startparameters);
+    bacteria = Bacteria(parameters.bacteriaparameters);
         
     % Creating the agents
-    tank = create_agents(tank, params.tankParams, ...
-        params.fishParams, params.plantParams); 
+    tank = create_agents(tank, parameters.tankparameters, ...
+        parameters.fishparameters, parameters.plantparameters); 
     
     % The data    
     results.fishPopulation = zeros(iterations);
@@ -32,15 +32,15 @@ function simulation (iterations)
     results.fishHarvested = zeros(iterations);
     results.plantsHarvested = zeros(iterations);
     results.plantMass = zeros(iterations);
-    results.ammoniaConcs = zeros(iterations);
-    results.nitrateConcs = zeros(iterations);
+    results.ammoniaConcentrations = zeros(iterations);
+    results.nitrateConcentrations = zeros(iterations);
     
     % The graphs
     close all
-    if params.displayGraphical
+    if parameters.displayGraphical
         figure('Name', 'Graphics', 'OuterPosition', [10,100, 500, 500]);
     end
-    if params.iterativeGraphs
+    if parameters.iterativeGraphs
         figure('Name', 'Graphs', 'OuterPosition', [520, 100, 600, 1000]);
     end
     
@@ -63,32 +63,32 @@ function simulation (iterations)
         tank = agents_behaviour(tank);
         
         % Storing the data
-        results.fishPopulation(i) = tank.countAliveFish();
+        results.fishPopulation(i) = tank.count_fish();
         results.fishFood(i) = tank.fishFood;
         results.fishSize(i) = tank.FishSize();
         results.fishHarvested(i) = tank.fishHarvested();
         results.plantsHarvested(i) = tank.plantsHarvested();
         results.plantMass(i) = tank.plantsMassSum();
-        results.ammoniaConcs(i) = tank.ammoniaConc();
-        results.nitrateConcs(i) = tank.nitrateConc();
+        results.ammoniaConcentrations(i) = tank.ammoniaConc();
+        results.nitrateConcentrations(i) = tank.nitrateConc();
 
         % Iterative displaying
-        if (rem(i , params.displayEvery)==0 && i ~= 0)
-            if (params.displayGraphical)
-                graphics(tank, params.plantParams.harvestSize, params.fishParams.ammoniaThreshold)
+        if (rem(i , parameters.displayEvery)==0 && i ~= 0)
+            if (parameters.displayGraphical)
+                graphics(tank, parameters.plantparameters.harvestSize, parameters.fishparameters.ammoniaThreshold)
             end
-            if (params.iterativeGraphs)
-                if (params.displayEvery == i)
-                    plot_graphs(iterations, i, params.displayEvery-1, results)
+            if (parameters.iterativeGraphs)
+                if (parameters.displayEvery == i)
+                    plot_graphs(iterations, i, parameters.displayEvery-1, results)
                 else
-                    plot_graphs(iterations, i, params.displayEvery, results)
+                    plot_graphs(iterations, i, parameters.displayEvery, results)
                 end
             end
         end
     end
     
     % Constructing the figure
-    if ~params.iterativeGraphs
+    if ~parameters.iterativeGraphs
         figure('Name', 'Graphs', 'OuterPosition', [520, 100, 600, 1000]);
         plot_graphs(iterations, i, iterations-1, results)
     end

@@ -1,5 +1,5 @@
 % Feeding each fish with an amount of food
-function [this, fish] = feedFish(this, fish)
+function [this, fish] = feed_fish(this, fish)
     % Calculations ajusted according to our research
     feedProportion = (6 / log10(fish.size + 1.5)) / 100;
     request = fish.size * feedProportion;

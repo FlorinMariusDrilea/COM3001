@@ -42,7 +42,7 @@ classdef Plant < Agent
             this.ageOneDay();
             
             % The nitrate from the tank
-            [this.nitrateIntake, tank] = tank.feedPlant(this);
+            [this.nitrateIntake, tank] = tank.feed_plant(this);
         end
        
         % Calculating the growth for each day
@@ -65,7 +65,7 @@ classdef Plant < Agent
             
             % Check if harvested
             if (this.size >= this.harvestSize)
-                [tank, this] = tank.harvestPlant(this);
+                [tank, this] = tank.harvest_plant(this);
             end
         end
     end

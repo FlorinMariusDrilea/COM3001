@@ -1,5 +1,5 @@
 % Allocate an amount of nitrate to each plant, as it asks for it
-function [val, this] = feedPlant(this, plant)
+function [val, this] = feed_plant(this, ~)
     % TO-DO: Spread equally?
     request = 1;
 

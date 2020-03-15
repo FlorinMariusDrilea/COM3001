@@ -60,7 +60,7 @@ classdef Fish < Agent
             this.age = this.age + 1;
             
             % Repeat taking food
-            [tank, this] = tank.feedFish(this);
+            [tank, this] = tank.feed_fish(this);
         end
         
         % Excrete function for the fish.

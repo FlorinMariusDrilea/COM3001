@@ -21,8 +21,16 @@ function graphics(tank, harvestSize, ammoniaThreshold)
     clf
     rectangle('Position',[1 1 10 5],...
         'FaceColor', [0, color, 0.6]);
-    rectangle('Position',[1 7 10 1]);
+    rectangle('Position',[1 7 10 1], 'Curvature', 0.2);
     axis([0 12 0 14]);
+    
+    % Get tank and its proprieties
+    for f=1:tank.fishFood
+        rectangle('Position', [(rand()*10)+1, (rand()*5)+1,...
+            0.1, 0.1],...
+            'FaceColor', 'k',...
+            'EdgeColor', 'none');
+    end
     
     % Get plants and its proprieties
     for p=1:length(plants)
@@ -33,14 +41,6 @@ function graphics(tank, harvestSize, ammoniaThreshold)
                 'FaceColor', 'r',...
                 'EdgeColor', 'none');
         end
-    end
-    
-    % Get tank and its proprieties
-    for f=1:tank.fishFood
-        rectangle('Position', [(rand()*10)+1, (rand()*5)+1,...
-            0.1, 0.1],...
-            'FaceColor', 'k',...
-            'EdgeColor', 'none');
     end
     
     % Get fish and its proprieties

@@ -3,11 +3,10 @@
 % Provides implementations for Fish behaviours
 
 classdef Fish < Agent
-    % Params
+    % Parameters
     properties
         fishParams
         harvestSize
-        % mg/day
         excreteRate
         % In days
         reproduceAge

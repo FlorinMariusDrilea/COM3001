@@ -3,7 +3,7 @@
 classdef Bacteria
     
     properties
-        % Params
+        % Parameters
         bacteriaParams
     end
     

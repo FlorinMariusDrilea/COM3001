@@ -17,7 +17,7 @@ classdef Tank
         % Harvested plant total number
         plantsHarvestCount
         
-        % In Mg
+        % Values in Mg
         ammonia
         nitrate        
         fishFood       

@@ -8,6 +8,7 @@
 %
 classdef Plant < Agent
     
+    %Parameters
     properties
         % The parameters for a plant
         plantParams

@@ -8,9 +8,12 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
     
     % Must be implemented
     methods (Abstract)
-        intake(tank) % Age, food, ammonia
-        output(tank) % Output waste/nutrients
-        behaviour(tank) % Die, kill, grow, harvest
+        % Age, food, ammonia (specific intakes of the tank)
+        intake(tank)
+        % Output waste/nutrients
+        output(tank)
+        % Die, kill, grow, harvest (Methods of the agents described)
+        behaviour(tank) 
     end
     
     % Proprietes that are the same for all agents
@@ -21,7 +24,8 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
         size
         nutritionDecay
         nutrition
-        growCoefficient % grow rate = coeff * intake
+        % growing rate = coefficient * specificIntake
+        growCoefficient
     end
     
     methods
@@ -37,6 +41,7 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
                 agent.growCoefficient = growCoefficient;
                 agent.nutrition = startNutrition;
                 agent.nutritionDecay = nutritionDecay;
+            % If there is no data -> print it cannot construct an agent
             else
                 agent.growCoefficient = 0;
                 agent.nutrition = 0;

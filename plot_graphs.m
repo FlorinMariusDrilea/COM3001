@@ -17,12 +17,12 @@ function plot_graphs(iterations, i, part, results)
     yyaxis right
     plot(i-part:i, results.fishHarvested(i-part:i), '-b',...
         i-part:i, results.plantsHarvested(i-part:i), '-c');
-    legend('Fish population', 'Fish size', 'Food', 'Plant mass', 'Fish harvested', 'Plant harvested', 'Location', 'EastOutside')
+    legend('The Fish Population', 'The Fish Size', 'Food', 'Plant Mass', 'Harvested Fish ', 'Harvested Plants ', 'Location', 'EastOutside')
     subplot(2,1,2)  
     yyaxis left
     xlim([0 iterations])
     plot(i-part:i, results.ammoniaConcentrations(i-part:i), '-b',...
         i-part:i, results.nitrateConcentrations(i-part:i), '-r');
     % Setting the legend
-    legend('Ammonia', 'Nitrate','Location', 'EastOutside')
+    legend('The Ammonia', 'The Nitrate','Location', 'EastOutside')
 end

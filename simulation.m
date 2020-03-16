@@ -89,7 +89,7 @@ function simulation (iterations)
     
     % Constructing the figure
     if ~parameters.iterativeGraphs
-        figure('Name', 'Graphs', 'OuterPosition', [520, 100, 600, 1000]);
+        figure('Name', 'Graphs', 'OuterPosition', [520, 100, 600, 500]);
         plot_graphs(iterations, i, iterations-1, results)
     end
 end

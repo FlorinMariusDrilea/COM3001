@@ -34,6 +34,6 @@ function [this, tank] = behaviour(this, tank)
 
     % Harvest behaviour
     if (this.size >= this.harvestSize)
-        [tank, this] = tank.harvestFish(this);
+        [tank, this] = tank.harvest_fish(this);
     end
 end

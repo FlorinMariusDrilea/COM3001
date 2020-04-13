@@ -55,7 +55,7 @@ classdef Plant < Agent
         function [this, tank] = output(this, tank)
         end
         
-        % Grow, be harvested,  die, kill, , be harvested
+        % Grow, be harvested,  die, kill, be harvested
         function [this, tank] = behaviour(this, tank)
             % Reduced growth caused by nitrate concentration that is
             % beneath the required leve

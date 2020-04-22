@@ -5,12 +5,12 @@
 classdef Fish < Agent
     % Parameters
     properties
-        fishParams
+        fishParameters
         harvestSize
         excreteRate
         % In days
-        reproduceAge
-        reproduceProb
+        reproducingAge
+        reproducingProb
         % If nutrition drops from threshold propose, start canibalism
         cannibalThreshold
         % Potential targets sizes
@@ -24,33 +24,33 @@ classdef Fish < Agent
     
     methods
         % Methods
-        [this, tank] = cannibalise(this, tank)
-        [this, tank] = reproduce(this, tank)
+        [this, tank] = cannibalism(this, tank)
+        [this, tank] = reproducing(this, tank)
         [this, tank] = harvest(this, tank)
         
         % Constructor
-        function fish = Fish(id, fishParams)
+        function fish = Fish(id, fishParameters)
             
             % Super constructor
-            fish = fish@Agent(id, fishParams.growCoeff, ...
-                fishParams.startNutrition, fishParams.nutritionDecay); 
+            fish = fish@Agent(id, fishParameters.growCoeff, ...
+                fishParameters.startNutrition, fishParameters.nutritionDecay); 
             
             % Pass original params 
-            fish.fishParams = fishParams;
+            fish.fishParameters = fishParameters;
             
             % Copying the fish params in order to modify them later
-            fish.harvestSize = fishParams.harvestSize;
-            fish.excreteRate = fishParams.excreteRate;
-            fish.reproduceAge = fishParams.reproduceAge;
-            fish.reproduceProb = fishParams.reproduceProb;
-            fish.cannibalThreshold = fishParams.cannibalThreshold;
-            fish.cannibalSizeCoeff = fishParams.cannibalSizeCoeff;
+            fish.harvestSize = fishParameters.harvestSize;
+            fish.excreteRate = fishParameters.excreteRate;
+            fish.reproducingAge = fishParameters.reproducingAge;
+            fish.reproducingProb = fishParameters.reproducingProb;
+            fish.cannibalThreshold = fishParameters.cannibalThreshold;
+            fish.cannibalSizeCoeff = fishParameters.cannibalSizeCoeff;
             
             % Threshold for fish sampled from a normal distribution
             % Used normal distribution to get 
             % a sample of the threshold for fish
-            fish.ammoniaThreshold = normrnd(fishParams.ammoniaThreshold, ...
-                fish.fishParams.ammoniaThreshStdDev);            
+            fish.ammoniaThreshold = normrnd(fishParameters.ammoniaThreshold, ...
+                fish.fishParameters.ammoniaThreshStdDev);            
         end
         
         % Take food from tank

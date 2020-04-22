@@ -4,7 +4,7 @@ function [this, plant] = harvest_plant(this, plant)
     plant.status = STATUS.HARVESTED;
     % Counting the harvested plant to the total number
     % I.e. adding one for each plant
-    this.plantsHarvestCount = this.plantsHarvestCount + 1;
+    this.plantsHarvestCounter = this.plantsHarvestCounter + 1;
     % This can happen if a plant grows big enough, so it can be removed
     % As in the case of fish, based on the wanted reproduction, 
     % a new plant may be added to the tank

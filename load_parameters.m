@@ -31,8 +31,8 @@ function parameters = load_parameters()
     fishparameters.harvestSize = 100;
     % Rate of food intake that is converted into excrete
     fishparameters.excreteRate = 0.75;
-    fishparameters.reproduceAge = 30 * 5; %
-    fishparameters.reproduceProb = 0.1;
+    fishparameters.reproducingAge = 30 * 5; %
+    fishparameters.reproducingProb = 0.1;
     % Starving threshold for nutrition
     fishparameters.cannibalThreshold = 0.1;
     % Size of fish that could be able to be eaten
@@ -62,8 +62,8 @@ function parameters = load_parameters()
 
     % Assigned initial values cannot be 
     % bigger that the maximum of fish and plants
-    tankparameters.fish.startCount = min(startparameters.fish, tankparameters.maxFish);
-    tankparameters.plant.startCount = min(startparameters.plants, tankparameters.maxPlants);
+    tankparameters.fish.startCounter = min(startparameters.fish, tankparameters.maxFish);
+    tankparameters.plant.startCounter = min(startparameters.plants, tankparameters.maxPlants);
     
     % Return all parameters   
     parameters.startparameters = startparameters;

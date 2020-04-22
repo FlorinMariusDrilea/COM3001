@@ -16,7 +16,7 @@ function [this, tank] = behaviour(this, tank)
 
     % Die if they are starving
     if (this.nutrition <= 0)
-        this.status = STATUS.DEAD;
+        this.status = STATUS.DIED;
         return
     end
 
@@ -24,12 +24,12 @@ function [this, tank] = behaviour(this, tank)
     if (this.nutrition < this.cannibalThreshold)
         % Can eat only fish that are smaller 
         % than that one that is trying to eat it
-        [this, tank] = this.cannibalise(tank);
+        [this, tank] = this.cannibalism(tank);
     end
     
     % Reproduce only if the probability is it less than the threshold
-    if (this.age >= this.reproduceAge && rand() < this.reproduceProb)
-        [this, tank] = this.reproduce(tank);
+    if (this.age >= this.reproducingAge && rand() < this.reproducingProb)
+        [this, tank] = this.reproducing(tank);
     end
 
     % Harvest behaviour

@@ -13,9 +13,9 @@ classdef Tank
         % Plants stored as an array
         plants
         % Harvested fish total number
-        fishHarvestCount
+        fishHarvestCounter
         % Harvested plant total number
-        plantsHarvestCount
+        plantsHarvestCounter
         
         % Values in Mg
         ammonia
@@ -40,9 +40,9 @@ classdef Tank
             this.tankParams = tankParams;
             
             % 0 harvested fish
-            this.fishHarvestCount = 0;
+            this.fishHarvestCounter = 0;
             % 0 harvested plant
-            this.plantsHarvestCount = 0;
+            this.plantsHarvestCounter = 0;
             
             % Ammonia level
             this.ammonia = startParams.ammonia;
@@ -116,12 +116,12 @@ classdef Tank
         
         % Harvested fish
         function val = fishHarvested(this)
-            val = this.fishHarvestCount;
+            val = this.fishHarvestCounter;
         end
         
         % Harvested plants
         function val = plantsHarvested(this)
-            val = this.plantsHarvestCount;
+            val = this.plantsHarvestCounter;
         end
         
         % Calculating the ammonia amount (level)

@@ -4,7 +4,7 @@ function [this, fish] = harvest_fish(this, fish)
     fish.status = STATUS.HARVESTED;
     % Counting the total number of harvested fish
     % Adding one for each fish
-    this.fishHarvestCount = this.fishHarvestCount + 1;
+    this.fishHarvestCounter = this.fishHarvestCounter + 1;
     % This happens if a fish grows enough, i.e. it can be removed
     % A new fish can be added, based on the wanted reproduction 
     

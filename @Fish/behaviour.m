@@ -1,16 +1,16 @@
 % Harvest or replace fish
 function [this, tank] = behaviour(this, tank)
-    % Grow based on growCoefficient and foodIntake
-    this = grow(this, this.growCoefficient * this.foodIntake);
+    % Grow based on growCoefficient and foodValue
+    this = grow(this, this.growCoefficient * this.foodValue);
 
     % Nutrition decrease each day
     % Calculate nutrition
-    this = this.calcNutrition(this.foodIntake);
+    this = this.calcNutrition(this.foodValue);
     
     % Die of ammonia poisoning if concentration
     % is bigger than the chosen threshold
-    if (tank.ammoniaConc() > this.ammoniaThreshold)
-        this.status = STATUS.DEAD;
+    if (tank.ammoniaConcentration() > this.ammoniaThreshold)
+        this.status = STATUS.DIED;
         return
     end
 
@@ -28,7 +28,7 @@ function [this, tank] = behaviour(this, tank)
     end
     
     % Reproduce only if the probability is it less than the threshold
-    if (this.age >= this.reproducingAge && rand() < this.reproducingProb)
+    if (this.age >= this.reproducingAge && rand() < this.reproducingLikelihood)
         [this, tank] = this.reproducing(tank);
     end
 

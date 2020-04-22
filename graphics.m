@@ -1,19 +1,19 @@
 % Represent all as a graphic counting every iteration
 function graphics(tank, harvestSize, ammoniaThreshold)
     % Visualize all scaling in time
-    plantSizeMod = 5/harvestSize;
+    plantSizeMod = 5 / harvestSize;
     fishSizeMod = 0.01;
-    ammoniaColorMod = 1/ammoniaThreshold;
+    ammoniaColorMod = 1 / ammoniaThreshold;
 
     % Get each item every time 
-    if (tank.ammoniaConc() > ammoniaThreshold)
+    if (tank.ammoniaConcentration() > ammoniaThreshold)
         color = 1;
     else
-        color = tank.ammoniaConc()*ammoniaColorMod;
+        color = tank.ammoniaConcentration()*ammoniaColorMod;
     end
     fish = tank.fish;
-    plants = tank.plants;
     maxPlants = tank.tankParams.maxPlants;
+    plants = tank.plants;
     plantRange = 10 / maxPlants;
     
     f = findobj('Name','Graphics');

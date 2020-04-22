@@ -29,9 +29,9 @@ function simulation (iterations)
     results.fishPopulation = zeros(iterations);
     results.fishSize = zeros(iterations);
     results.fishFood = zeros(iterations);
+    results.plantMass = zeros(iterations);
     results.fishHarvested = zeros(iterations);
     results.plantsHarvested = zeros(iterations);
-    results.plantMass = zeros(iterations);
     results.ammoniaConcentrations = zeros(iterations);
     results.nitrateConcentrations = zeros(iterations);
     
@@ -69,8 +69,8 @@ function simulation (iterations)
         results.fishHarvested(i) = tank.fishHarvested();
         results.plantsHarvested(i) = tank.plantsHarvested();
         results.plantMass(i) = tank.plantsMassSum();
-        results.ammoniaConcentrations(i) = tank.ammoniaConc();
-        results.nitrateConcentrations(i) = tank.nitrateConc();
+        results.ammoniaConcentrations(i) = tank.ammoniaConcentration();
+        results.nitrateConcentrations(i) = tank.nitrateConcentration();
 
         % Iterative displaying
         if (rem(i , parameters.displayEvery)==0 && i ~= 0)

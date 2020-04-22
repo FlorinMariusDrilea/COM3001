@@ -26,11 +26,11 @@ classdef Tank
     methods
         % From other scripts
         % Couting the total number of alive fish
-        val = count_fish(this)
+        value = count_fish(this)
         % Feed the fish
         [this, fish] = feed_fish(this, fish)
         % Feed the plant
-        [val, this] = feed_plant(this, plant)
+        [value, this] = feed_plant(this, plant)
         % Harvest the fish
         [this, fish] = harvest(this, fish)
         
@@ -84,8 +84,8 @@ classdef Tank
         end
         
         % Calculating the volume of water
-        function val = volume(this)
-            val = this.tankParams.fish.tankVolume ...
+        function value = volume(this)
+            value = this.tankParams.fish.tankVolume ...
                 + this.tankParams.plant.tankVolume;
         end
         
@@ -105,37 +105,37 @@ classdef Tank
         end
         
         % Size of fish
-        function val = FishSize(this)
-            val = 0;
+        function value = FishSize(this)
+            value = 0;
             for f=1:length(this.fish)
                 if this.fish(f).status == STATUS.ALIVE
-                    val = val + this.fish(f).size;
+                    value = value + this.fish(f).size;
                 end
             end
         end
         
         % Harvested fish
-        function val = fishHarvested(this)
-            val = this.fishHarvestCounter;
+        function value = fishHarvested(this)
+            value = this.fishHarvestCounter;
         end
         
         % Harvested plants
-        function val = plantsHarvested(this)
-            val = this.plantsHarvestCounter;
+        function value = plantsHarvested(this)
+            value = this.plantsHarvestCounter;
         end
         
         % Calculating the ammonia amount (level)
         % The sum of ammonia and the excreted value
-        function this = addAmmonia(this, val)
-            this.ammonia = this.ammonia + val;
+        function this = addAmmonia(this, value)
+            this.ammonia = this.ammonia + value;
         end
         
         % Calculating the unit for concentration as (Mg, ammonia) / (m^3, volume)
-        function val = ammoniaConc(this)
-            val = this.ammonia / this.volume();
+        function value = ammoniaConcentration(this)
+            value = this.ammonia / this.volume();
         end
-        function val = nitrateConc(this)
-            val = this.nitrate / this.volume();
+        function value = nitrateConcentration(this)
+            value = this.nitrate / this.volume();
         end
     end
 end

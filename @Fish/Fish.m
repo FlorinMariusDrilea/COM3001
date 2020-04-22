@@ -10,16 +10,16 @@ classdef Fish < Agent
         excreteRate
         % In days
         reproducingAge
-        reproducingProb
+        reproducingLikelihood
         % If nutrition drops from threshold propose, start canibalism
         cannibalThreshold
         % Potential targets sizes
-        cannibalSizeCoeff
+        cannibalSizeCoefficient
         % Fatal concentration of ammonia
         ammoniaThreshold 
         
         % Fields
-        foodIntake 
+        foodValue 
     end
     
     methods
@@ -32,7 +32,7 @@ classdef Fish < Agent
         function fish = Fish(id, fishParameters)
             
             % Super constructor
-            fish = fish@Agent(id, fishParameters.growCoeff, ...
+            fish = fish@Agent(id, fishParameters.growCoefficient, ...
                 fishParameters.startNutrition, fishParameters.nutritionDecay); 
             
             % Pass original params 
@@ -42,9 +42,9 @@ classdef Fish < Agent
             fish.harvestSize = fishParameters.harvestSize;
             fish.excreteRate = fishParameters.excreteRate;
             fish.reproducingAge = fishParameters.reproducingAge;
-            fish.reproducingProb = fishParameters.reproducingProb;
+            fish.reproducingLikelihood = fishParameters.reproducingLikelihood;
             fish.cannibalThreshold = fishParameters.cannibalThreshold;
-            fish.cannibalSizeCoeff = fishParameters.cannibalSizeCoeff;
+            fish.cannibalSizeCoefficient = fishParameters.cannibalSizeCoefficient;
             
             % Threshold for fish sampled from a normal distribution
             % Used normal distribution to get 
@@ -64,7 +64,7 @@ classdef Fish < Agent
         
         % Excrete function for the fish.
         function [this, tank] = output(this, tank)
-            tank = tank.addAmmonia(this.excreteRate * this.foodIntake);
+            tank = tank.addAmmonia(this.excreteRate * this.foodValue);
         end
     end
     

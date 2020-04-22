@@ -1,7 +1,5 @@
 % Harvest a plant
 function [this, plant] = harvest_plant(this, plant)    
-    % The status of the plant is updated to 'harvested'
-    plant.status = STATUS.HARVESTED;
     % Counting the harvested plant to the total number
     % I.e. adding one for each plant
     this.plantsHarvestCounter = this.plantsHarvestCounter + 1;
@@ -11,6 +9,9 @@ function [this, plant] = harvest_plant(this, plant)
     
     % It will reproduce in a free found index
     index = this.getFreePlantIndex();
+    
+    % The status of the plant is updated to 'harvested'
+    plant.status = STATUS.HARVESTED;
     
     % Check if the index has a value larger or equal to 0
     % If it is not, this is treated as a sign/error that there is no free index

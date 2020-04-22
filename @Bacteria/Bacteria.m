@@ -16,7 +16,7 @@ classdef Bacteria
         % Convert levels and return them
         function tank = convert(this, tank)
             % If concentration of nitrate is too high -> cannot convert
-            if (tank.nitrateConc() < this.bacteriaParams.maxNitrateConc)
+            if (tank.nitrateConcentration() < this.bacteriaParams.maxNitrateConcentration)
                 
                 % Ammonia is never negative
                 if (tank.ammonia - this.bacteriaParams.convertRate < 0)

@@ -1,7 +1,7 @@
 % Fish eats tank
 function [thisFish, tank] = cannibalism(thisFish, tank)
     % Maximum size of target fish
-    sizeLimit = thisFish.size * thisFish.cannibalSizeCoeff;
+    sizeLimit = thisFish.size * thisFish.cannibalSizeCoefficient;
 
     % Filter with fish of specific size
     targetCounter = 0;
@@ -9,7 +9,7 @@ function [thisFish, tank] = cannibalism(thisFish, tank)
     targetList = ones(n) * -1;
     for i = 1:n
         % Alive + small -> add to list
-        % If a fish has a sizeCoeff bigger or equal to 1 it could 
+        % If a fish has a sizeCoefficient bigger or equal to 1 it could 
         % eat itself in the end
         if (tank.fish(i).status == STATUS.ALIVE && tank.fish(i).size <= sizeLimit)
             targetCounter = targetCounter + 1;
@@ -23,7 +23,7 @@ function [thisFish, tank] = cannibalism(thisFish, tank)
         tIndex = ceil(targetCounter * rand());
 
         % Eat fish at specific index
-        tank.fish(targetList(tIndex)).status = STATUS.DEAD;
+        tank.fish(targetList(tIndex)).status = STATUS.DIED;
 
         % Eating makes the fish bigger
         % Adds up to nutrition as well

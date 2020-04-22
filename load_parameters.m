@@ -21,37 +21,37 @@ function parameters = load_parameters()
 
     % Parameters of fish
     % Variance 
-    fishparameters.foodIntakeStdDev = 0.05;
+    fishparameters.foodValueStdDev = 0.05;
     % How much a fish is eating
-    fishparameters.eatCoeff = 0.02;
+    fishparameters.eatCoefficient = 0.02;
     fishparameters.startNutrition = 1;
     fishparameters.nutritionDecay = 0.15;
-    % deltaSize = growCoeff * foodIntake
-    fishparameters.growCoeff = 0.5;
-    fishparameters.harvestSize = 100;
+    % deltaSize = growCoefficient * foodValue
+    fishparameters.growCoefficient = 0.7;
+    fishparameters.harvestSize = 150;
     % Rate of food intake that is converted into excrete
     fishparameters.excreteRate = 0.75;
-    fishparameters.reproducingAge = 30 * 5; %
-    fishparameters.reproducingProb = 0.1;
+    fishparameters.reproducingAge = 30 * 5;
+    fishparameters.reproducingLikelihood = 0.15;
     % Starving threshold for nutrition
     fishparameters.cannibalThreshold = 0.1;
     % Size of fish that could be able to be eaten
-    fishparameters.cannibalSizeCoeff = 0.5;
+    fishparameters.cannibalSizeCoefficient = 0.5;
     % Threshold of ammonia for dying
     fishparameters.ammoniaThreshold = 50;
     % Threshold for standard deviation of ammonia threshold
     fishparameters.ammoniaThreshStdDev = 10;
 
     % Parameters of plants
-    plantparameters.harvestSize = 150;
+    plantparameters.harvestSize = 200;
     plantparameters.startNutrition = 1;
     plantparameters.nutritionDecay = 0.2;
-    plantparameters.growCoeff = 5;
-    plantparameters.minNitrateConc = 1;
+    plantparameters.growCoefficient = 5;
+    plantparameters.minNitrateConcentration = 1;
     
     % Parameters of bacteria
-    bacteriaparameters.convertRate = 30 * tankparameters.fish.tankVolume;
-    bacteriaparameters.maxNitrateConc = 100;
+    bacteriaparameters.convertRate = 40 * tankparameters.fish.tankVolume;
+    bacteriaparameters.maxNitrateConcentration = 100;
 
     % Limits for every parameter 
     % (maximum of fish and plants depeding on the tank)

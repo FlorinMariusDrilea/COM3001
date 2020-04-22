@@ -11,18 +11,18 @@ function plot_graphs(iterations, i, part, results)
     yyaxis left
     plot(i-part:i, results.fishPopulation(i-part:i), '-r',...
         i-part:i, results.fishSize(i-part:i), '-k',...
-        i-part:i, results.fishFood(i-part:i), '-m',...
-        i-part:i, results.plantMass(i-part:i), '-g');
+        i-part:i, results.plantMass(i-part:i), '-g',...
+        i-part:i, results.fishFood(i-part:i), '-m');
     % Activating the side of the current axes associated with the right y-axis
     yyaxis right
     plot(i-part:i, results.fishHarvested(i-part:i), '-b',...
         i-part:i, results.plantsHarvested(i-part:i), '-c');
-    legend('The Fish Population', 'The Fish Size', 'Food', 'Plant Mass', 'Harvested Fish ', 'Harvested Plants ', 'Location', 'EastOutside')
+    legend('The Fish Population', 'The Fish Size', 'Plant Mass', 'Food', 'Harvested Fish ', 'Harvested Plants ', 'Location', 'EastOutside')
     subplot(2,1,2)  
     yyaxis left
     xlim([0 iterations])
-    plot(i-part:i, results.ammoniaConcentrations(i-part:i), '-b',...
-        i-part:i, results.nitrateConcentrations(i-part:i), '-r');
+    plot(i-part:i, results.nitrateConcentrations(i-part:i), '-r',...
+        i-part:i, results.ammoniaConcentrations(i-part:i), '-b');
     % Setting the legend
-    legend('The Ammonia', 'The Nitrate','Location', 'EastOutside')
+    legend('The Nitrate', 'The Ammonia','Location', 'EastOutside')
 end

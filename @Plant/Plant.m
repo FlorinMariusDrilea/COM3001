@@ -12,7 +12,7 @@ classdef Plant < Agent
     properties
         % The parameters for a plant
         plantParams
-        minNitrateConc
+        minNitrateConcentration
         
         
         % Fields
@@ -26,12 +26,12 @@ classdef Plant < Agent
         function plant = Plant(id, plantParams)
             
             % Call the superclass (Agent's) constructor
-            plant = plant@Agent(id, plantParams.growCoeff, ...
+            plant = plant@Agent(id, plantParams.growCoefficient, ...
                 plantParams.startNutrition, plantParams.nutritionDecay);
             % Harvest size
             plant.harvestSize = plantParams.harvestSize;
             % Minimum nitrate concentration
-            plant.minNitrateConc = plantParams.minNitrateConc;
+            plant.minNitrateConcentration = plantParams.minNitrateConcentration;
             % Plant parameters
             plant.plantParams = plantParams;
         end
@@ -47,8 +47,8 @@ classdef Plant < Agent
         end
        
         % Calculating the growth for each day
-        function val = growRate(this)
-            val = this.growCoefficient * this.nitrateIntake;
+        function value = growRate(this)
+            value = this.growCoefficient * this.nitrateIntake;
         end
         
         % Excrete, output waste or nutrients
@@ -59,7 +59,7 @@ classdef Plant < Agent
         function [this, tank] = behaviour(this, tank)
             % Reduced growth caused by nitrate concentration that is
             % beneath the required leve
-            stuntGrowth = min(1, tank.nitrateConc() / this.minNitrateConc);
+            stuntGrowth = min(1, tank.nitrateConcentration() / this.minNitrateConcentration);
             deltaSize = stuntGrowth * this.growRate();
             deltaSize = normrnd(deltaSize, 0.5);
             this = grow(this, deltaSize);

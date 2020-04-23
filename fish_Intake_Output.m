@@ -6,18 +6,18 @@ function tank = fish_Intake_Output(tank)
     % Do not let any fish to take advantages
     tank.fish = tank.fish(randperm(length(tank.fish)));
 
-    % Intake of fish
+    % Consumption of fish
     for j = 1:fishPopulation
         if (tank.fish(j).status == STATUS.ALIVE)
-            [theFish, tank] = tank.fish(j).intake(tank);
+            [theFish, tank] = tank.fish(j).consumption(tank);
             tank.fish(j) = theFish;
         end        
     end
     
-    % Output of fish
+    % Outcome of fish
     for j = 1:fishPopulation
         if (tank.fish(j).status == STATUS.ALIVE)
-            [theFish, tank] = tank.fish(j).output(tank);
+            [theFish, tank] = tank.fish(j).outcome(tank);
             tank.fish(j) = theFish;
         end
     end

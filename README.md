@@ -36,7 +36,7 @@ Our virtual experiment is focused on determining the ratio between fish and plan
 		tank.addFood()
 
 		For all agents:
-			agent.intake()
+			agent.consumption()
 			agent.output()
 
 		bacteria.convert()

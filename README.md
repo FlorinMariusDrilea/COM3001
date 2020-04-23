@@ -27,11 +27,11 @@ This is also a main research area in the Internet Of Things field. In order to k
 ## Virtual experiment
 Our virtual experiment is focused on determining the ratio between fish and plants so that we can find the most stable system.
 
-## Simulation flow:
+## Simulation logic:
 
-- Create Agents
-
-- Iteration Loop
+- Create the environment (Tank)
+- Create the Agents
+- When iterating in the loop
 		
 		tank.addFood()
 

@@ -1,20 +1,20 @@
-% File that takes intake and ouputs for the plant
-function tank = plant_Intake_Output(tank)
+% File that takes consumption and ouputs for the plant
+function tank = plant_Consumption_Outcome(tank)
 
     [~, plantPopulation] = size(tank.plants);
 
-    % Intake of plants
+    % Consumption of plants
     for j = 1:plantPopulation
         if (tank.plants(j).status == STATUS.ALIVE)
-            [thePlant, tank] = tank.plants(j).intake(tank);
+            [thePlant, tank] = tank.plants(j).consumption(tank);
             tank.plants(j) = thePlant;
         end
     end
     
-    % Output of plants
+    % Outcome of plants
     for j = 1:plantPopulation
         if (tank.plants(j).status == STATUS.ALIVE)
-            [thePlant, tank] = tank.plants(j).output(tank);
+            [thePlant, tank] = tank.plants(j).outcome(tank);
             tank.plants(j) = thePlant;
         end
     end

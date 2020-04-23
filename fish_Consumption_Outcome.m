@@ -1,5 +1,5 @@
-% File that takes intake and ouputs for the fish
-function tank = fish_Intake_Output(tank)
+% File that takes consumption and ouputs for the fish
+function tank = fish_Consumption_Outcome(tank)
 
     [~, fishPopulation] = size(tank.fish);
     % Assign randomly the fish

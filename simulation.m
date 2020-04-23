@@ -4,8 +4,8 @@
     % When iterating in the loop:
     %       tank.addFood()
     %		For all Agents:
-    %			agent.intake()
-    %			agent.output()
+    %			agent.consumption()
+    %			agent.outcome()
     %		bacteria.convert()
     %		For all Agents:
     %			agent.behaviour()
@@ -49,15 +49,15 @@ function simulation (iterations)
         % Adding to the tank the food amount
         tank = tank.addFood();
         
-        % The fish intake and output
-        tank = fish_Intake_Output(tank);
+        % The fish consumption and outcome
+        tank = fish_Consumption_Outcome(tank);
         
         % The bacteria converting ammonia level to nitrate concetration of
         % the water
         tank = bacteria.convert(tank);
         
-        % The plant intake and output
-        tank = plant_Intake_Output(tank);        
+        % The plant consumption and outcome
+        tank = plant_Consumption_Outcome(tank);        
         
         % The behaviour
         tank = agents_behaviour(tank);

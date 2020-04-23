@@ -8,8 +8,8 @@ Iteration Loop
 		tank.addFood()
 
 		For all agents:
-			agent.intake()
-			agent.output()
+			agent.consumption()
+			agent.outcome()
 
 		bacteria.convert()
 

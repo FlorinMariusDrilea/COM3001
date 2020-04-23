@@ -1,5 +1,5 @@
 % This class implements abstract Agent methods for the Plant type
-% intake(tank), output(tank), and behaviour(tank)
+% consumption(tank), outcome(tank), and behaviour(tank)
 % and provides implementations for other Plant behaviours
 
 
@@ -15,7 +15,7 @@ classdef Plant < Agent
         minNitrateConcentration
            
         % Fields
-        nitrateIntake
+        nitrateConsumption
         nitrateRequest
         harvestSize
     end
@@ -37,21 +37,21 @@ classdef Plant < Agent
         
         % It is called at the start of each timestep
         % Amonia and food from the tank
-        function [this, tank] = intake(this, tank)
+        function [this, tank] = consumption(this, tank)
             % The age
             this.ageOneDay();
             
             % The nitrate from the tank
-            [this.nitrateIntake, tank] = tank.feed_plant(this);
+            [this.nitrateConsumption, tank] = tank.feed_plant(this);
         end
        
         % Calculating the growth for each day
         function value = growRate(this)
-            value = this.growCoefficient * this.nitrateIntake;
+            value = this.growCoefficient * this.nitrateConsumption;
         end
         
-        % Excrete, output waste or nutrients
-        function [this, tank] = output(this, tank)
+        % Excrete, outcome waste or nutrients
+        function [this, tank] = outcome(this, tank)
         end
         
         % Grow, be harvested,  die, kill, be harvested

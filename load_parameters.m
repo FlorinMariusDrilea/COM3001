@@ -29,7 +29,7 @@ function parameters = load_parameters()
     fishParameters.eatCoefficient = 0.02;
     fishParameters.startNutrition = 1;
     fishParameters.nutritionDecay = 0.15;
-    % Rate of food intake that is converted into excrete
+    % Rate of food consumption that is converted into excrete
     fishParameters.excreteRate = 0.75;
     fishParameters.reproducingAge = 30 * 5;
     fishParameters.reproducingLikelihood = 0.15;

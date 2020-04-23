@@ -1,6 +1,6 @@
 % This class provides the framework for both 
 % of the agent types in our model.
-% Declare intake, output, and behaviour within 
+% Declare consumption, outcome, and behaviour within 
 % that interacts with the Tank
 
 % List for both fish, plant in the same arrays
@@ -8,12 +8,12 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
     
     % Must be implemented
     methods (Abstract)
-        % Age, food, ammonia (specific intakes of the tank)
-        intake(tank)
+        % Age, food, ammonia (specific consumptions of the tank)
+        consumption(tank)
         % Die, kill, grow, harvest (Methods of the agents described)
         behaviour(tank) 
-        % Output waste/nutrients
-        output(tank)
+        % Outcome waste/nutrients
+        outcome(tank)
     end
     
     % Proprietes that are the same for all agents
@@ -24,7 +24,7 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
         age
         nutritionDecay
         nutrition
-        % growing rate = coefficient * specificIntake
+        % growing rate = coefficient * specificConsumption
         growCoefficient
     end
     
@@ -49,7 +49,7 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
                 print("No arguments in Agent constructor!");
             end
         end
-         % Agent should grow proportional to intake(food)
+         % Agent should grow proportional to consumption(food)
         function agent = grow(agent, deltaSize)
             agent.size = agent.size + deltaSize;
         end
@@ -57,7 +57,7 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
         function agent = ageOneDay(agent)
             agent.age = agent.age + 1;
         end
-        % Food intake adds to nutrition,
+        % Food consumption adds to nutrition,
         % That decays in each step
         function agent = calculateFood(agent, deltaFood)
             agent.nutrition = agent.nutrition ...

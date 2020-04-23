@@ -1,5 +1,5 @@
 % This class implements abstract Agent methods for the Fish type
-% Intake, output, and behaviour
+% Consumption, outcome, and behaviour
 % Provides implementations for Fish behaviours
 
 classdef Fish < Agent
@@ -54,7 +54,7 @@ classdef Fish < Agent
         end
         
         % Take food from tank
-        function [this, tank] = intake(this, tank)
+        function [this, tank] = consumption(this, tank)
             % Age
             this.age = this.age + 1;
             
@@ -63,7 +63,7 @@ classdef Fish < Agent
         end
         
         % Excrete function for the fish.
-        function [this, tank] = output(this, tank)
+        function [this, tank] = outcome(this, tank)
             tank = tank.addAmmonia(this.excreteRate * this.foodValue);
         end
     end

@@ -1,4 +1,4 @@
-% Intake for fish and plants agent types
+% Consumption for fish and plants agent types
 function tank = agents_behaviour(tank)
     
     % Initialize fish and plants

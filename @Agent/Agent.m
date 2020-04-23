@@ -49,13 +49,13 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
                 print("No arguments in Agent constructor!");
             end
         end
+         % Agent should grow proportional to intake(food)
+        function agent = grow(agent, deltaSize)
+            agent.size = agent.size + deltaSize;
+        end
         % Agent age every day that pass
         function agent = ageOneDay(agent)
             agent.age = agent.age + 1;
-        end
-        % Agent should grow proportional to intake(food)
-        function agent = grow(agent, deltaSize)
-            agent.size = agent.size + deltaSize;
         end
         % Food intake adds to nutrition,
         % That decays in each step

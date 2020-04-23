@@ -1,7 +1,7 @@
 % Fish eats tank
 function [thisFish, tank] = cannibalism(thisFish, tank)
     % Maximum size of target fish
-    sizeLimit = thisFish.size * thisFish.cannibalSizeCoefficient;
+    sizeLimit = thisFish.size * thisFish.cannibalismSizeCoefficient;
 
     % Filter with fish of specific size
     targetCounter = 0;

@@ -20,8 +20,8 @@ function [this, tank] = behaviour(this, tank)
         return
     end
 
-    % Canibalism if that is the case
-    if (this.nutrition < this.cannibalThreshold)
+    % Cannibalism if that is the case
+    if (this.nutrition < this.cannibalismThreshold)
         % Can eat only fish that are smaller 
         % than that one that is trying to eat it
         [this, tank] = this.cannibalism(tank);

@@ -18,12 +18,12 @@ function simulation (iterations)
     
     % Creating the environment
     % The tank
-    tank = Tank(parameters.tankparameters, parameters.startparameters);
-    bacteria = Bacteria(parameters.bacteriaparameters);
+    tank = Tank(parameters.tankParameters, parameters.startParameters);
+    bacteria = Bacteria(parameters.bacteriaParameters);
         
     % Creating the agents
-    tank = create_agents(tank, parameters.tankparameters, ...
-        parameters.fishparameters, parameters.plantparameters); 
+    tank = create_agents(tank, parameters.tankParameters, ...
+        parameters.fishParameters, parameters.plantParameters); 
     
     % The data    
     results.fishPopulation = zeros(iterations);
@@ -75,7 +75,7 @@ function simulation (iterations)
         % Iterative displaying
         if (rem(i , parameters.displayEvery)==0 && i ~= 0)
             if (parameters.displayGraphical)
-                graphics(tank, parameters.plantparameters.harvestSize, parameters.fishparameters.ammoniaThreshold)
+                graphics(tank, parameters.plantParameters.harvestSize, parameters.fishParameters.ammoniaThreshold)
             end
             if (parameters.iterativeGraphs)
                 if (parameters.displayEvery == i)

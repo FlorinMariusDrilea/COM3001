@@ -12,9 +12,9 @@ classdef Fish < Agent
         reproducingAge
         reproducingLikelihood
         % If nutrition drops from threshold propose, start canibalism
-        cannibalThreshold
+        cannibalismThreshold
         % Potential targets sizes
-        cannibalSizeCoefficient
+        cannibalismSizeCoefficient
         % Fatal concentration of ammonia
         ammoniaThreshold 
         
@@ -24,8 +24,8 @@ classdef Fish < Agent
     
     methods
         % Methods
-        [this, tank] = cannibalism(this, tank)
         [this, tank] = reproducing(this, tank)
+        [this, tank] = cannibalism(this, tank)
         [this, tank] = harvest(this, tank)
         
         % Constructor
@@ -41,10 +41,10 @@ classdef Fish < Agent
             % Copying the fish parameters in order to modify them later
             fish.harvestSize = fishParameters.harvestSize;
             fish.excreteRate = fishParameters.excreteRate;
-            fish.reproducingAge = fishParameters.reproducingAge;
             fish.reproducingLikelihood = fishParameters.reproducingLikelihood;
-            fish.cannibalThreshold = fishParameters.cannibalThreshold;
-            fish.cannibalSizeCoefficient = fishParameters.cannibalSizeCoefficient;
+            fish.reproducingAge = fishParameters.reproducingAge;
+            fish.cannibalismThreshold = fishParameters.cannibalismThreshold;
+            fish.cannibalismSizeCoefficient = fishParameters.cannibalismSizeCoefficient;
             
             % Threshold for fish sampled from a normal distribution
             % Used normal distribution to get 

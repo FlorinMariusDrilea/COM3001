@@ -9,7 +9,9 @@ This is also a main research area in the Internet Of Things field. In order to k
 ## List of agent types with important memory parameters
 
 Fish: growth coefficient, excrete rate,  harvest size, cannibalism size, ammonia threshold, reproduction age;
+
 Plant: growth coefficient, harvest size;
+
 Bacteria: conversion rate
 
 
@@ -25,7 +27,7 @@ Bacteria created don’t allow plants to grow.
 Our virtual experiment is focused on determining the ratio between fish and plants so that we can find the most stable system.
 
 
-## Simulation Flow:
+## Simulation flow:
 
 Create Agents
 Iteration Loop

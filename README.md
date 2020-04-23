@@ -37,7 +37,7 @@ Our virtual experiment is focused on determining the ratio between fish and plan
 
 		For all agents:
 			agent.consumption()
-			agent.output()
+			agent.outcome()
 
 		bacteria.convert()
 

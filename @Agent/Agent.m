@@ -59,7 +59,7 @@ classdef (Abstract) Agent < matlab.mixin.Heterogeneous
         end
         % Food intake adds to nutrition,
         % That decays in each step
-        function agent = calcNutrition(agent, deltaFood)
+        function agent = calculateFood(agent, deltaFood)
             agent.nutrition = agent.nutrition ...
                 + deltaFood - agent.nutritionDecay;
             if (agent.nutrition > 1)

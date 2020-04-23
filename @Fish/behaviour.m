@@ -5,7 +5,7 @@ function [this, tank] = behaviour(this, tank)
 
     % Nutrition decrease each day
     % Calculate nutrition
-    this = this.calcNutrition(this.foodValue);
+    this = this.calculateFood(this.foodValue);
     
     % Die of ammonia poisoning if concentration
     % is bigger than the chosen threshold

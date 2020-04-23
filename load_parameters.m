@@ -15,20 +15,20 @@ function parameters = load_parameters()
     % Parameters of tank
     tankparameters.fish.foodPerTimestep = startparameters.fish * 0.15;
     tankparameters.fish.tankVolume = 10;    
-    tankparameters.fish.maxPerCubicMetre = 100;
     tankparameters.plant.tankVolume = 10;
+    tankparameters.fish.maxPerCubicMetre = 100;
     tankparameters.plant.maxPerCubicMetre = 10;
 
     % Parameters of fish
     % Variance 
     fishparameters.foodValueStdDev = 0.05;
+    % deltaSize = growCoefficient * foodValue
+    fishparameters.growCoefficient = 0.7;
+    fishparameters.harvestSize = 150;
     % How much a fish is eating
     fishparameters.eatCoefficient = 0.02;
     fishparameters.startNutrition = 1;
     fishparameters.nutritionDecay = 0.15;
-    % deltaSize = growCoefficient * foodValue
-    fishparameters.growCoefficient = 0.7;
-    fishparameters.harvestSize = 150;
     % Rate of food intake that is converted into excrete
     fishparameters.excreteRate = 0.75;
     fishparameters.reproducingAge = 30 * 5;

@@ -12,7 +12,7 @@ function graphics(tank, harvestSize, ammoniaThreshold)
         color = tank.ammoniaConcentration()*ammoniaColorMod;
     end
     fish = tank.fish;
-    maxPlants = tank.tankParams.maxPlants;
+    maxPlants = tank.tankParameters.maxPlants;
     plants = tank.plants;
     plantRange = 10 / maxPlants;
     

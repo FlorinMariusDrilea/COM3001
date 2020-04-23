@@ -17,6 +17,6 @@ function [this, plant] = harvest_plant(this, plant)
     % If it is not, this is treated as a sign/error that there is no free index
     if (index >= 0)
         % Updating the index, moving the plant
-        this.plants(index) = Plant(this.newID(), plant.plantParams);
+        this.plants(index) = Plant(this.newID(), plant.plantParameters);
     end
 end

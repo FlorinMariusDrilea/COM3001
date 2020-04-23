@@ -4,27 +4,27 @@ classdef Bacteria
     
     properties
         % Parameters
-        bacteriaParams
+        bacteriaParameters
     end
     
     methods
         % Constructor
-        function this = Bacteria(bacteriaParams)
-            this.bacteriaParams = bacteriaParams;
+        function this = Bacteria(bacteriaParameters)
+            this.bacteriaParameters = bacteriaParameters;
         end
         
         % Convert levels and return them
         function tank = convert(this, tank)
             % If concentration of nitrate is too high -> cannot convert
-            if (tank.nitrateConcentration() < this.bacteriaParams.maxNitrateConcentration)
+            if (tank.nitrateConcentration() < this.bacteriaParameters.maxNitrateConcentration)
                 
                 % Ammonia is never negative
-                if (tank.ammonia - this.bacteriaParams.convertRate < 0)
+                if (tank.ammonia - this.bacteriaParameters.convertRate < 0)
                     convertedAmmonia = tank.ammonia;
                     tank.ammonia = 0;
                 else                
-                    convertedAmmonia = this.bacteriaParams.convertRate; 
-                    tank.ammonia = tank.ammonia - this.bacteriaParams.convertRate;
+                    convertedAmmonia = this.bacteriaParameters.convertRate; 
+                    tank.ammonia = tank.ammonia - this.bacteriaParameters.convertRate;
                 end
 
                 % Nitrate increases by ammount that was convertet above

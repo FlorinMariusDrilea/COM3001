@@ -22,17 +22,17 @@ classdef Plant < Agent
     
     methods
         % The constructor for a plant
-        function plant = Plant(id, plantParameters)
+        function plant = Plant(id, plantParams)
             
             % Call the superclass (Agent's) constructor
-            plant = plant@Agent(id, plantParameters.growCoefficient, ...
-                plantParameters.startNutrition, plantParameters.nutritionDecay);
+            plant = plant@Agent(id, plantParams.growCoefficient, ...
+                plantParams.startNutrition, plantParams.nutritionDecay);
             % Harvest size
-            plant.harvestSize = plantParameters.harvestSize;
+            plant.harvestSize = plantParams.harvestSize;
             % Minimum nitrate concentration
-            plant.minNitrateConcentration = plantParameters.minNitrateConcentration;
+            plant.minNitrateConcentration = plantParams.minNitrateConcentration;
             % Plant parameters
-            plant.plantParameters = plantParameters;
+            plant.plantParams = plantParams;
         end
         
         % It is called at the start of each timestep

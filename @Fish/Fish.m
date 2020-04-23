@@ -35,10 +35,10 @@ classdef Fish < Agent
             fish = fish@Agent(id, fishParameters.growCoefficient, ...
                 fishParameters.startNutrition, fishParameters.nutritionDecay); 
             
-            % Pass original params 
+            % Pass original parameters 
             fish.fishParameters = fishParameters;
             
-            % Copying the fish params in order to modify them later
+            % Copying the fish parameters in order to modify them later
             fish.harvestSize = fishParameters.harvestSize;
             fish.excreteRate = fishParameters.excreteRate;
             fish.reproducingAge = fishParameters.reproducingAge;

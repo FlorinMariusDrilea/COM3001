@@ -5,7 +5,7 @@ classdef Tank
     
     properties
         % Parameters of the tank
-        tankParams
+        tankParameters
         idCounter
         
         % Array stored as an array
@@ -35,9 +35,9 @@ classdef Tank
         [this, fish] = harvest(this, fish)
         
         % Initialising the Tank constructor
-        function this = Tank(tankParams, startParams)
+        function this = Tank(tankParameters, startParameters)
             this.idCounter = 0;
-            this.tankParams = tankParams;
+            this.tankParameters = tankParameters;
             
             % 0 harvested fish
             this.fishHarvestCounter = 0;
@@ -45,11 +45,11 @@ classdef Tank
             this.plantsHarvestCounter = 0;
             
             % Ammonia level
-            this.ammonia = startParams.ammonia;
+            this.ammonia = startParameters.ammonia;
             % Nitrate concentration
-            this.nitrate = startParams.nitrate;
+            this.nitrate = startParameters.nitrate;
             % Amount of food
-            this.fishFood = startParams.fishFood;
+            this.fishFood = startParameters.fishFood;
         end
         
         function i = newID(this)
@@ -65,7 +65,7 @@ classdef Tank
             % As arrays are initialised with empties
             [~, n] = size(this.fish);
             % Check the boundaries
-            if (n+1 > this.tankParams.maxFish)
+            if (n+1 > this.tankParameters.maxFish)
                 index = -1;
             else
                 index = n+1;
@@ -76,7 +76,7 @@ classdef Tank
         function index = getFreePlantIndex(this)
             % The size returns only the nuber of non-empty elements
             [~, n] = size(this.plants);
-            if (n+1 > this.tankParams.maxPlants)
+            if (n+1 > this.tankParameters.maxPlants)
                 index = -1;
             else
                 index = n+1;
@@ -85,13 +85,13 @@ classdef Tank
         
         % Calculating the volume of water
         function value = volume(this)
-            value = this.tankParams.fish.tankVolume ...
-                + this.tankParams.plant.tankVolume;
+            value = this.tankParameters.fish.tankVolume ...
+                + this.tankParameters.plant.tankVolume;
         end
         
         % Adding the food for fish in the tank
         function this = addFood(this)
-            this.fishFood = this.fishFood + this.tankParams.fish.foodPerTimestep;
+            this.fishFood = this.fishFood + this.tankParameters.fish.foodPerTimestep;
         end
         
         % Mass of plants

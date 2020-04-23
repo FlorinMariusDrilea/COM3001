@@ -29,9 +29,9 @@ Our virtual experiment is focused on determining the ratio between fish and plan
 
 ## Simulation flow:
 
-Create Agents
+- Create Agents
 
-Iteration Loop
+- Iteration Loop
 		
 		tank.addFood()
 
